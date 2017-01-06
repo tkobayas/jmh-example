@@ -40,7 +40,7 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <finalName>my-benchmarks</finalName>
+              <finalName>benchmarks</finalName>
               <transformers>
                 <transformer
                   implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
