@@ -12,13 +12,22 @@ public class StringAppendBenchmark {
     private static final int loop = 1000;
 
     @Benchmark
-    public String testConcatString() {
+    public String testPlusString() {
         String str = "";
         for ( int i = 0; i < loop; i++ ) {
             str += "ABC";
         }
         return str;
     }
+
+    //    @Benchmark
+    //    public String testConcatString() {
+    //        String str = "";
+    //        for ( int i = 0; i < loop; i++ ) {
+    //            str = str.concat( "ABC" );
+    //        }
+    //        return str;
+    //    }
 
     @Benchmark
     public String testStringBuffer() {
@@ -39,7 +48,7 @@ public class StringAppendBenchmark {
     }
 
     public static void main( String[] args ) throws RunnerException, IOException {
-        Options opt = new OptionsBuilder().include( StringAppendBenchmark.class.getSimpleName() ).warmupIterations( 5 ).measurementIterations( 5 ).forks( 2 )
+        Options opt = new OptionsBuilder().include( StringAppendBenchmark.class.getSimpleName() ).warmupIterations( 2 ).measurementIterations( 2 ).forks( 1 )
                 .build();
 
         new Runner( opt ).run();
