@@ -12,27 +12,30 @@ public class StringAppendBenchmark {
     private static final int loop = 1000;
 
     @Benchmark
-    public void testConcatString() {
+    public String testConcatString() {
         String str = "";
         for ( int i = 0; i < loop; i++ ) {
             str += "ABC";
         }
+        return str;
     }
 
     @Benchmark
-    public void testStringBuffer() {
+    public String testStringBuffer() {
         StringBuffer buffer = new StringBuffer();
         for ( int i = 0; i < loop; i++ ) {
             buffer.append( "ABC" );
         }
+        return buffer.toString();
     }
 
     @Benchmark
-    public void testStringBuilder() {
+    public String testStringBuilder() {
         StringBuilder builder = new StringBuilder();
         for ( int i = 0; i < loop; i++ ) {
             builder.append( "ABC" );
         }
+        return builder.toString();
     }
 
     public static void main( String[] args ) throws RunnerException, IOException {
