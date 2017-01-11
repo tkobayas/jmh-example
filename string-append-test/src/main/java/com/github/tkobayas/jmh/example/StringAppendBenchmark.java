@@ -20,15 +20,6 @@ public class StringAppendBenchmark {
         return str;
     }
 
-    //    @Benchmark
-    //    public String testConcatString() {
-    //        String str = "";
-    //        for ( int i = 0; i < loop; i++ ) {
-    //            str = str.concat( "ABC" );
-    //        }
-    //        return str;
-    //    }
-
     @Benchmark
     public String testStringBuffer() {
         StringBuffer buffer = new StringBuffer();
