@@ -25,9 +25,8 @@ public class ThreadLocalBenchmark {
     private static final int loop = 10000;
 
     private static final ThreadLocal<Integer> count = new ThreadLocal<>();
-    
-    private static final ThreadLocal<AtomicInteger> atomicCount = new ThreadLocal<>();
 
+    private static final ThreadLocal<AtomicInteger> atomicCount = new ThreadLocal<>();
 
     @Benchmark
     public int testInteger() {
@@ -46,7 +45,7 @@ public class ThreadLocalBenchmark {
         }
         return atomicCount.get().intValue();
     }
-    
+
     public static void main(String[] args) throws RunnerException, IOException {
         Options opt = new OptionsBuilder().include(ThreadLocalBenchmark.class.getSimpleName()).warmupIterations(2).measurementIterations(2).forks(1)
                                           .build();
